@@ -1,1 +1,74 @@
-# integracao_sql_nosql_flask
+# Integração SQL - NoSQL com Flask
+
+## Setup
+
+- Baixe o projeto
+- Crie um banco de dados no mysql chamado posweb_db
+- Crie e popule as tabelas de cliente e de produto
+
+### Exemplo de código:
+
+```sql
+-- Cria o banco de dados
+CREATE DATABASE IF NOT EXISTS posweb_db;
+USE posweb_db;
+
+-- Cria a tabela de clientes
+CREATE TABLE IF NOT EXISTS clientes (
+    id_cliente INT AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    cpf VARCHAR(15) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    PRIMARY KEY (id_cliente)
+);
+
+-- Cria a tabela de produtos
+CREATE TABLE IF NOT EXISTS produtos (
+    id_produto INT AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    descricao TEXT,
+    preco DECIMAL(10, 2) NOT NULL,
+    categoria VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id_produto)
+);
+
+-- Insere dados na tabela de clientes
+INSERT INTO clientes (nome, email, cpf, data_nascimento) VALUES
+('João Silva', 'joao.silva@example.com', '123.456.789-00', '1985-08-15'),
+('Maria Oliveira', 'maria.oliveira@example.com', '987.654.321-00', '1990-12-01'),
+('Kleber Barros', 'kleber.barros@unipe.com', 'xxx.yyy.zzz-wk', '2000-01-01');
+
+-- Insere dados na tabela de produtos
+INSERT INTO produtos (nome, descricao, preco, categoria) VALUES
+('Teclado Mecânico', 'Teclado mecânico RGB', 100.00, 'Periféricos'),
+('Mouse Gamer', 'Mouse gamer com 12 botões', 150.00, 'Periféricos'),
+('Monitor 24"', 'Monitor 24 polegadas 144Hz', 1200.00, 'Monitores'),
+('Cadeira Gamer', 'Cadeira gamer ergonômica', 700.00, 'Móveis'),
+('SSD 1TB', 'SSD 1TB NVMe', 500.00, 'Armazenamento');
+
+
+- Crie uma base de dados no mongodb compass
+
+### Exemplo de código:
+
+```sql
+// Conecta ao banco de dados `banco_web`. Se não existir, será criado ao inserir os primeiros documentos.
+use banco_web
+
+// Cria a coleção 'pedidos' e insere os documentos
+db.pedidos.insertMany([
+  {
+    "data_pedido": "2024-04-18",
+    "id_cliente": 1,
+    "id_produto": 2,
+    "valor_pedido": 1200
+  },
+  {
+    "data_pedido": "2024-04-10",
+    "id_cliente": 1,
+    "id_produto": 1,
+    "valor_pedido": 300.0
+  }
+])
+``````
