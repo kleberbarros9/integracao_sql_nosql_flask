@@ -46,7 +46,7 @@ INSERT INTO produtos (nome, descricao, preco, categoria) VALUES
 ('Monitor 24"', 'Monitor 24 polegadas 144Hz', 1200.00, 'Monitores'),
 ('Cadeira Gamer', 'Cadeira gamer ergonômica', 700.00, 'Móveis'),
 ('SSD 1TB', 'SSD 1TB NVMe', 500.00, 'Armazenamento');
-
+```
 
 - Crie uma base de dados no mongodb compass
 
@@ -72,3 +72,66 @@ db.pedidos.insertMany([
   }
 ])
 ``````
+
+
+## Após rodar o código main.py (preferencialmente no pycharm), as seguintes rotas são possíveis:
+
+
+### Visualização do dashboad
+
+- Contem as tabelas clientes, produtos e pedidos 
+- Toda vez que inserir, modificar ou deletar algum elemento na tabela, será atualizado no banco de dados e do ***dashboard*** também
+
+```html
+http://127.0.0.1:5000/
+```
+
+### Rota GET de produtos
+```html
+http://127.0.0.1:5000/produtos
+```
+
+### Rota POST de produtos
+- usar o postmam para introduzir dado com o método POST (body - raw)
+
+```html
+http://127.0.0.1:5000/produtos
+```
+
+
+```html
+{
+    "categoria": "Periféricos",
+    "descricao": "Caixa de som multilaser",
+    "id": 1,
+    "nome": "Caixa de som",
+    "preco": 1500.0
+  }
+```
+
+### Rota PUT de produtos
+- usar o postmam para modificar dado com o método PUT (body - raw)
+
+Exemplo:
+```html
+http://127.0.0.1:5000/produtos/6
+```
+
+```html
+{
+    "categoria": "Periféricos",
+    "descricao": "Caixa de som multilaser",
+    "id": 1,
+    "nome": "Caixa de som",
+    "preco": 150.0
+  }
+```
+
+
+### Rota DELETE de produtos
+- usar o postmam para delatar dado com o método DELETE 
+
+Exemplo:
+```html
+http://127.0.0.1:5000/produtos/6
+```
