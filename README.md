@@ -86,6 +86,11 @@ db.pedidos.insertMany([
 http://127.0.0.1:5000/
 ```
 
+
+![Tela do dahsboad com o servidor ativo](tela_dashboad.png)
+
+
+
 ### Rota GET de produtos
 ```html
 http://127.0.0.1:5000/produtos
@@ -134,4 +139,109 @@ http://127.0.0.1:5000/produtos/6
 Exemplo:
 ```html
 http://127.0.0.1:5000/produtos/6
+```
+
+
+
+### Rota GET de clientes
+```html
+http://127.0.0.1:5000/clientes
+```
+
+### Rota POST de clientes
+- usar o postmam para introduzir dado com o método POST (body - raw)
+
+```html
+http://127.0.0.1:5000/clientes
+```
+
+
+```html
+{
+    "nome": "Khalel Barros",
+    "email": "khalel.barros@unipe.com",
+    "cpf": "xxx.yyy.zz5-wk",
+    "data_nascimento": "2000-01-01"
+}
+```
+
+### Rota PUT de cliente
+- usar o postmam para modificar dado com o método PUT (body - raw)
+
+Exemplo:
+```html
+http://127.0.0.1:5000/cliente/5
+```
+
+```html
+{
+    "nome": "Khalel Barros",
+    "email": "khalel.barros@unipe.com",
+    "cpf": "111.222.333-44",
+    "data_nascimento": "2009-07-21"
+}
+```
+
+
+### Rota DELETE de cliente
+- usar o postmam para delatar dado com o método DELETE 
+
+Exemplo:
+```html
+http://127.0.0.1:5000/cliente/5
+```
+
+
+
+
+
+
+
+### Rota GET de pedido
+```html
+http://127.0.0.1:5000/pedidos
+```
+
+### Rota POST de pedidos
+- usar o postmam para introduzir dado com o método POST (body - raw)
+
+```html
+http://127.0.0.1:5000/pedidos
+```
+
+
+```html
+{
+  "id_produto": 4,
+  "id_cliente": 3,
+  "data_pedido": "2024-04-10",
+  "valor_pedido": 1400.00
+}
+
+```
+
+### Rota PUT de pedido
+- usar o postmam para modificar dado com o método PUT (body - raw)
+
+Exemplo:
+```html
+http://127.0.0.1:5000/pedidos/<hash_pedido>
+```
+
+```html
+{
+  "id_produto": 4,
+  "id_cliente": 3,
+  "data_pedido": "2024-04-18",
+  "valor_pedido": 2100.00
+}
+```
+
+
+### Rota DELETE de pedido
+- usar o postmam para delatar dado com o método DELETE 
+
+Exemplo:
+```html
+http://127.0.0.1:5000/pedidos/<hash_pedido>
 ```
